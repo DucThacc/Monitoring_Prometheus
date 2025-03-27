@@ -1,0 +1,23 @@
+groups:
+  - name: example-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU usage is high"
+          description: "CPU usage on instance {{ $labels.instance }} is above 80% for more than 2m"
+
+  - name: alert_rules
+    rules:
+      - alert: HighCPUBusy
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 50
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU Busy High"
+          description: "CPU usage on instance {{ $labels.instance }} is above 50% for more than 2 minutes."
+
