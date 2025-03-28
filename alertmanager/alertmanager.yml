@@ -13,5 +13,5 @@ receivers:
       - send_resolved: true
         bot_token: "7920437249:AAFHucmnlKgeqkd-n19xFoM8aiBP-oR-NYg"
         chat_id: 6793955595
-        message: "🚨 *ALERT:* {{ .CommonAnnotations.summary }}\n*Description:* {{ .CommonAnnotations.description }}"
+        message: "🚨 *ALERT:* {{ .CommonAnnotations.summary }}\n*Description1:* {{ .CommonAnnotations.description }}"
         parse_mode: "Markdown"
